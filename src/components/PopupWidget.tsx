@@ -118,7 +118,7 @@ export function PopupWidget() {
               as="div"
             >
               <DisclosurePanel className="flex flex-col overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
-                <div className="flex flex-col items-center justify-center h-32 p-5 bg-green-600">
+                <div className="flex flex-col items-center justify-center h-32 p-5 bg-green-500">
                   <h3 className="text-lg text-white">
                     Plan Your Training Adventure
                   </h3>
