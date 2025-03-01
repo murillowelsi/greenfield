@@ -110,36 +110,38 @@ export function PopupWidget() {
               </Transition>
             </DisclosureButton>
             <Transition
-              className="fixed  z-50 bottom-[100px] top-0 right-0  left-0 sm:top-auto sm:right-5 sm:left-auto"
+              className="fixed z-50 bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto"
               enter="transition duration-200 transform ease"
               enterFrom="opacity-0 translate-y-5"
               leave="transition duration-200 transform ease"
               leaveTo="opacity-0 translate-y-5"
               as="div"
             >
-              <DisclosurePanel className=" flex flex-col  overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
+              <DisclosurePanel className="flex flex-col overflow-hidden left-0 h-full w-full sm:w-[350px] min-h-[250px] sm:h-[600px] border border-gray-300 dark:border-gray-800 bg-white shadow-2xl rounded-md sm:max-h-[calc(100vh-120px)]">
                 <div className="flex flex-col items-center justify-center h-32 p-5 bg-green-600">
-                  <h3 className="text-lg text-white">How can we help?</h3>
+                  <h3 className="text-lg text-white">
+                    Plan Your Training Adventure
+                  </h3>
                   <p className="text-white opacity-50">
-                    We usually respond in a few hours
+                    Expect a reply within 24 hours
                   </p>
                 </div>
-                <div className="flex-grow h-full p-6 overflow-auto bg-gray-50 ">
+                <div className="flex-grow h-full p-6 overflow-auto bg-gray-50">
                   {!isSubmitSuccessful && (
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="YOUR_ACCESS_KEY_HERE"
+                        value="1166bc13-f591-4b97-9dcb-6bd89f34cc28"
                         {...register("apikey")}
                       />
                       <input
                         type="hidden"
-                        value={`${userName} sent a message from Nextly`}
+                        value={`${userName} sent a message from Greenfield`}
                         {...register("subject")}
                       />
                       <input
                         type="hidden"
-                        value="Nextly Template"
+                        value="Greenfield Camps"
                         {...register("from_name")}
                       />
                       <input
@@ -147,7 +149,7 @@ export function PopupWidget() {
                         className="hidden"
                         style={{ display: "none" }}
                         {...register("botcheck")}
-                      ></input>
+                      />
 
                       <div className="mb-4">
                         <label
@@ -164,7 +166,7 @@ export function PopupWidget() {
                             required: "Full name is required",
                             maxLength: 80,
                           })}
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
+                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring ${
                             errors.name
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-green-600 ring-green-100"
@@ -195,13 +197,12 @@ export function PopupWidget() {
                             },
                           })}
                           placeholder="you@company.com"
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring   ${
+                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring ${
                             errors.email
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-green-600 ring-green-100"
                           }`}
                         />
-
                         {errors.email && (
                           <div className="mt-1 text-sm text-red-400 invalid-feedback">
                             {errors.email.message as string}
@@ -214,29 +215,29 @@ export function PopupWidget() {
                           htmlFor="message"
                           className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                         >
-                          Your Message
+                          Your Questions or Goals
                         </label>
-
                         <textarea
                           rows={4}
                           id="message"
                           {...register("message", {
-                            required: "Enter your Message",
+                            required: "Tell us about your needs",
                           })}
-                          placeholder="Your Message"
-                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md h-28 focus:outline-none focus:ring   ${
+                          placeholder="Tell us about your training needs or which camp you’re interested in"
+                          className={`w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border border-gray-300 rounded-md h-28 focus:outline-none focus:ring ${
                             errors.message
                               ? "border-red-600 focus:border-red-600 ring-red-100"
                               : "border-gray-300 focus:border-green-600 ring-green-100"
                           }`}
                           required
-                        ></textarea>
+                        />
                         {errors.message && (
                           <div className="mt-1 text-sm text-red-400 invalid-feedback">
                             {errors.message.message as string}
                           </div>
                         )}
                       </div>
+
                       <div className="mb-3">
                         <button
                           type="submit"
@@ -256,34 +257,22 @@ export function PopupWidget() {
                                 r="10"
                                 stroke="currentColor"
                                 strokeWidth="4"
-                              ></circle>
+                              />
                               <path
                                 className="opacity-75"
                                 fill="currentColor"
                                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                              ></path>
+                              />
                             </svg>
                           ) : (
-                            "Send Message"
+                            "Send Inquiry"
                           )}
                         </button>
                       </div>
                       <p
                         className="text-xs text-center text-gray-400"
                         id="result"
-                      >
-                        <span>
-                          Powered by{" "}
-                          <a
-                            href="https://Web3Forms.com"
-                            className="text-gray-600"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Web3Forms
-                          </a>
-                        </span>
-                      </p>
+                      ></p>
                     </form>
                   )}
 
@@ -304,7 +293,7 @@ export function PopupWidget() {
                         />
                       </svg>
                       <h3 className="py-5 text-xl text-green-500">
-                        Message sent successfully
+                        You’re One Step Closer to Portugal!
                       </h3>
                       <p className="text-gray-700 md:px-3">{Message}</p>
                       <button
@@ -332,7 +321,6 @@ export function PopupWidget() {
                           strokeWidth="3"
                         />
                       </svg>
-
                       <h3 className="text-xl text-red-400 py-7">
                         Oops, Something went wrong!
                       </h3>
